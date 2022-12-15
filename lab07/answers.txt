@@ -1,51 +1,77 @@
 Exercise 1
 	Scenario 1
-		1. 
-		2.
-		3.
+		1. Because [cache size] in bytes is exactly equal to [step size] in bytes.
+		2. Still 0. Never hit.
+		3. Change [a1] to [1].
 
 	Scenario 2
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. 2 (read and write)
+		2. The pattern is Miss, Hit, Hit, Hit.
+		3. 0.75
+		4. The hit rate increases towards 1, because all the specified items has been stored in the cache since 1st outer loop.
+		5.  we should try to access **cache size consecutive elements** of the array at a time and apply all of the **function ** to that **cache size consecutive elements** so we can be completely done with it before moving on, thereby keeping that **cache size consecutive elements** hot in the cache and not having to circle back to it later on
 
 	Scenario 3
-		1.
-		2.
-		3.
-		4.
-		5.
+		1. L1 hit rate:	0.5
+		    L2 hit rate:	0
+		    overall:		0.5
+		2. 32, 16
+		3. 16. Only access L2 when L1 misses.
+		4. Increase [a2].
+		5. (1) It has no effect on the L1_HR and L2_HR when we increase the number of blocks in L1.
+		    (2) The L1_HR will increase when we increase the block size of L1 cache, but the L2_HR will not be affected.
 
 Exercise 2
-	ijk:
-	ikj:
-	jik:
-	jki:
-	kij:
-	kji:
+	ijk:	moves through B with stride 1
+		moves through A with stride n
+		moves through C with stride 0
+		2.211 Gflop/s
 
-	1.
-	2.
-	3.
+	ikj:	moves through B with stride n
+		moves through A with stride 0
+		moves through C with stride n
+		1.881 Gflop/s
+
+	jik:	moves through B with stride 1
+		moves through A with stride n
+		moves through C with stride 0
+		2.255 Gflop/s
+
+	jki:	moves through B with stride 0
+		moves through A with stride 1
+		moves through C with stride 1
+		17.997 Gflop/s
+
+	kij:	moves through B with stride n
+		moves through A with stride 0
+		moves through C with stride n
+		1.849 Gflop/s
+
+	kji:	moves through B with stride 0
+		moves through A with stride 1
+		moves through C with stride 1
+		15.301 Gflop/s
+
+	1. jki. It provides the least hit miss.
+	2. ikj. 
+	3. More stride in the innermost loop, the worse it is.
 
 Exercise 3
 	Part 1
-		blocksize = 20, n = 100: 
-		blocksize = 20, n = 1000: 
-		blocksize = 20, n = 2000: 
-		blocksize = 20, n = 5000: 
-		blocksize = 20, n = 10000: 
+		blocksize = 20, n = 100: 	0.004	0.003
+		blocksize = 20, n = 1000: 	0.905	0.525
+		blocksize = 20, n = 2000: 	10.865	4.176
+		blocksize = 20, n = 5000: 	150.617	34.642
+		blocksize = 20, n = 10000: 	729.533	144.528
 
 		1.
 		2.
 
 	Part 2
-		blocksize = 50, n = 10000:
-		blocksize = 100, n = 10000:
-		blocksize = 500, n = 10000:
-		blocksize = 1000, n = 10000:
-		blocksize = 5000, n = 10000:
+		blocksize = 50, n = 10000:	722.126	130.641
+		blocksize = 100, n = 10000:	729.481	102.35
+		blocksize = 500, n = 10000:	734.681	90.566
+		blocksize = 1000, n = 10000:	760.921	111.125
+		blocksize = 5000, n = 10000:	739.681	674.393
 
 		1.
