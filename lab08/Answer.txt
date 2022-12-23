@@ -1,0 +1,14 @@
+Excercise1
+1. 32B
+2. 4, 6; 0, 6
+3. No. The TLB size is equal to the # of Page Frame.Once a page get evicted to disk, the valid bit in the page table will be set to 0.
+4. Omitted.
+
+Excercise2
+00 20 40 60 80 A0 C0 E0 00 20
+
+Excercise3
+Increase memory size.
+
+Excercise4
+Other process may clear valid bit for a process.
